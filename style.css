@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;700&family=Kumbh+Sans:wght@400;700&family=League+Spartan:wght@400;500;700&family=Lexend+Deca&family=Montserrat:wght@500;700&family=Open+Sans&family=Outfit:wght@400;700&family=Overpass:wght@400;600&family=Poppins:wght@400;600&family=Red+Hat+Display:wght@500;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --Mobile-Width: 375px;
+    --Desktop-Width: 1440px;
+
+    /* Primary Text */
+    --desaturated-blue: hsl(238, 29%, 16%);
+    --soft-red: hsl(14, 88%, 65%);
+
+    /* Neutral Text */
+    --darker-grayish: hsl(237, 12%, 33%);
+    --dark-grayish: hsl(240, 6%, 50%);
+
+    /* Dividers */
+    --light-grayish: hsl(240, 5%, 91%);
+
+    /* Font-size */
+    --font-size: 12px;
+
+    /* Font-family */
+    --font-family: 'Kumbh Sans', sans-serif;
+}
+
+/* Animation */
+@keyframes boxHop {
+    from {
+        transform: translate(-4rem, -3rem);
+    }
+    50% {
+        transform: translate(-4rem, -2rem);
+    }
+    to {
+        transform: translate(-4rem, -3rem);
+    }
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(hsl(273, 75%, 66%) 13%, hsl(240, 73%, 65%));
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+}
+
+.faq-img-container {
+    position: relative;
+    background-color: var(--light-grayish);
+}
+
+.faq-img-container img {
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--light-grayish);
+    width: 90%;
+    text-align: center;
+    padding-inline: 2rem;
+    border-radius: 1rem;
+}
+
+.faq-img-container::before {
+    content: "";
+    width: 13rem;
+    height: 10rem;
+    position: absolute;
+    background: url(images/illustration-woman-online-mobile.svg) no-repeat center;
+    top: 0;
+    transform: translate(-6rem, -6rem);
+}
+
+
+.faq-img-container img {
+    width: 100%;
+}
+
+.faq-content {
+    padding-block: 1.5rem;
+    padding-inline-end: 2rem;
+}
+
+.title {
+    font-size: 2rem;
+    color: var(--desaturated-blue);
+    margin: 3rem 0 2.5rem 0;
+}
+
+.question {
+    margin: 2.5rem 0;
+}
+
+.question-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .5rem;
+}
+.question-title-container .btn {
+    border: none;
+    cursor: pointer;
+}
+
+.question-title-container h3, .question-title-container p {
+    color: var(--dark-grayish);
+}
+
+.question-title-text {
+    line-height: 1.2rem;
+    text-align: start;
+    display: none;
+}
+
+.question-title {
+    cursor: pointer;
+}
+
+.question-title:hover {
+    color: var(--soft-red);
+}
+
+.show-text {
+    display: block;
+}
+
+.rotate-arrow {
+    transform: rotate(180deg);
+}
+.dark-title {
+    color: var(--desaturated-blue) !important;
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        flex-direction: row;
+        width: calc(var(--Desktop-Width) / 1.5);
+        height: 80vh;
+        background-color: var(--light-grayish);
+        padding-inline: 0;
+        text-align: start;
+    }
+
+    .col {
+        width: 50%;
+    }
+
+    .faq-img-container img {
+        width: 100%;
+    }
+
+    .faq-img-container {
+        background: url(images/illustration-woman-online-desktop.svg) -4.5rem 5rem no-repeat,
+            url(images/bg-pattern-desktop.svg) -35rem -20rem no-repeat;
+    }
+
+    .faq-img-container::before {
+        content: "";
+        width: 6.5rem;
+        height: 6.9rem;
+        background: url(images/illustration-box-desktop.svg) -2.5rem .2rem no-repeat;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translate(-4rem, -3rem);
+        animation: boxHop 2s ease-in-out;
+        animation-iteration-count: infinite;
+    }
+
+    .question-title-container {
+        padding-inline-end: 6rem;
+    }
+}
